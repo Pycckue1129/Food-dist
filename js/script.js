@@ -108,6 +108,7 @@ window.addEventListener('DOMContentLoaded', () => {
         modal.classList.toggle('show');
         // modal.classList.remove('hide');
         document.body.style.overflow = 'hidden'; // блокировка прокрутки страницы
+        clearInterval(modalTimerId);
     }
 
     function hideModal() {
@@ -134,4 +135,15 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const modalTimerId = setTimeout(showModal, 35000);
+
+    function scrollWindow() {
+        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+            showModal();
+            window.removeEventListener('scroll', scrollWindow);
+            clearInterval(modalTimerId);
+        }
+    }
+
+    window.addEventListener('scroll', scrollWindow);
 });
