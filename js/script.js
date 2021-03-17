@@ -105,14 +105,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     function showModal() {
-        modal.classList.add('show');
-        modal.classList.remove('hide');
+        modal.classList.toggle('show');
+        // modal.classList.remove('hide');
         document.body.style.overflow = 'hidden'; // блокировка прокрутки страницы
     }
 
     function hideModal() {
-        modal.classList.add('hide');
-        modal.classList.remove('show');
+        // modal.classList.add('hide');
+        modal.classList.toggle('show');
         document.body.style.overflow = '';
     }
 
